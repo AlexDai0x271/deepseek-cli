@@ -69,6 +69,21 @@ chmod +x deepseek_cli.py
 sudo ln -sf $(pwd)/deepseek_cli.py /usr/local/bin/deepseek
 ```
 
+## 快速检查版本
+
+安装完成后，可以快速检查版本：
+
+```bash
+# 检查版本信息
+deepseek --version
+
+# 输出示例:
+# DeepSeek CLI v1.0.0
+# 作者: AlexDai
+# 邮箱: your.email@example.com
+# 描述: DeepSeek大语言模型命令行聊天工具
+```
+
 ## 获取 API 密钥
 
 1. 访问 [DeepSeek 官网](https://www.deepseek.com/)
@@ -116,6 +131,7 @@ deepseek --api-key YOUR_KEY \
 
 | 参数 | 说明 | 默认值 |
 |------|------|--------|
+| `--version` | 显示版本信息并退出 | - |
 | `--api-key` | DeepSeek API 密钥 | 环境变量 |
 | `--model` | 使用的模型名称 | `deepseek-chat` |
 | `--base-url` | API 基础 URL | `https://api.deepseek.com/v1` |
@@ -136,6 +152,7 @@ deepseek --api-key YOUR_KEY \
 | `/clear` | 清空对话历史 |
 | `/history` | 查看对话历史 |
 | `/config` | 显示当前配置 |
+| `/version` | 显示版本信息 |
 
 ### 配置命令
 
@@ -174,6 +191,22 @@ deepseek --api-key YOUR_KEY \
   温度: 0.9
   最大tokens: 2000
   流式输出: True
+```
+
+### 版本查看
+```
+👤 你: /version
+🚀 DeepSeek CLI v1.0.0
+
+📋 详细信息:
+  版本: 1.0.0
+  作者: AlexDai
+  邮箱: your.email@example.com
+  描述: DeepSeek大语言模型命令行聊天工具
+  
+🔗 项目链接:
+  GitHub: https://github.com/AlexDai0x271/deepseek-cli
+  Issues: https://github.com/AlexDai0x271/deepseek-cli/issues
 ```
 
 ### 查看历史

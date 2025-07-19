@@ -24,6 +24,12 @@ from datetime import datetime
 from typing import List, Dict, Optional
 import readline  # 启用命令行历史和编辑功能
 
+# 版本信息
+__version__ = "0.0.1"
+__author__ = "AlexDai"
+__email__ = "alexdai0625@outlook.com"
+__description__ = "DeepSeek大语言模型命令行聊天工具"
+
 class DeepSeekCLI:
     def __init__(self, api_key: str, base_url: str = "https://api.deepseek.com/v1", model: str = "deepseek-chat"):
         """初始化DeepSeek CLI客户端
@@ -181,6 +187,7 @@ class DeepSeekCLI:
   /history  - 显示对话历史
   /config   - 显示当前配置
   /set      - 设置配置参数
+  /version  - 显示版本信息
   /exit     - 退出程序
 
 设置参数:
@@ -232,6 +239,23 @@ class DeepSeekCLI:
   历史记录: {len(self.conversation_history)} 条
         """
         print(config_text)
+
+    def show_version(self):
+        """显示版本信息"""
+        version_text = f"""
+🚀 DeepSeek CLI v{__version__}
+
+📋 详细信息:
+  版本: {__version__}
+  作者: {__author__}
+  邮箱: {__email__}
+  描述: {__description__}
+  
+🔗 项目链接:
+  GitHub: https://github.com/AlexDai0x271/deepseek-cli
+  Issues: https://github.com/AlexDai0x271/deepseek-cli/issues
+        """
+        print(version_text)
 
     def set_config(self, param: str, value: str):
         """设置配置参数"""
@@ -297,6 +321,8 @@ class DeepSeekCLI:
                         self.show_history()
                     elif cmd == 'config':
                         self.show_config()
+                    elif cmd == 'version':
+                        self.show_version()
                     elif cmd == 'set' and len(cmd_parts) >= 3:
                         self.set_config(cmd_parts[1], cmd_parts[2])
                     elif cmd == 'set':
@@ -321,9 +347,33 @@ class DeepSeekCLI:
                 print(f"\n❌ 发生错误: {e}")
 
 
+def show_version():
+    """显示版本信息 (用于命令行参数)"""
+    print(f"DeepSeek CLI v{__version__}")
+    print(f"作者: {__author__}")
+    print(f"邮箱: {__email__}")
+    print(f"描述: {__description__}")
+
+
 def main():
     """主函数"""
-    parser = argparse.ArgumentParser(description="DeepSeek CLI 聊天工具")
+    parser = argparse.ArgumentParser(
+        description="DeepSeek CLI 聊天工具",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=f"""
+示例:
+  %(prog)s --api-key YOUR_API_KEY
+  %(prog)s --api-key YOUR_API_KEY --model deepseek-coder
+  %(prog)s --version
+  
+环境变量:
+  DEEPSEEK_API_KEY    DeepSeek API 密钥
+  
+更多信息请访问: https://github.com/AlexDai0x271/deepseek-cli
+        """
+    )
+    
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     parser.add_argument("--api-key", help="DeepSeek API密钥")
     parser.add_argument("--model", default="deepseek-chat", help="模型名称")
     parser.add_argument("--base-url", default="https://api.deepseek.com/v1", help="API基础URL")
@@ -340,6 +390,7 @@ def main():
         print("❌ 请提供DeepSeek API密钥:")
         print("   方法1: --api-key YOUR_API_KEY")
         print("   方法2: 设置环境变量 DEEPSEEK_API_KEY")
+        print("   方法3: deepseek --help 查看更多帮助")
         sys.exit(1)
     
     try:
