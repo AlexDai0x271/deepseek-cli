@@ -308,7 +308,7 @@ rm -rf deepseek-cli/
 
 ## 更新日志
 
-### v1.0.0
+### v0.0.1
 - ✨ 初始发布版本
 - 🔥 支持流式对话
 - 💾 对话历史记录
@@ -327,7 +327,7 @@ rm -rf deepseek-cli/
 
 ## 开源协议
 
-本项目基于 MIT 协议开源 - 详见 [LICENSE](LICENSE) 文件
+本项目基于 MIT 协议开源 - 详见 [LICENSE](./LICENSE) 文件
 
 ## 联系方式
 
