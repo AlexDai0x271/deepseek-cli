@@ -327,7 +327,7 @@ rm -rf deepseek-cli/
 
 ## 开源协议
 
-本项目基于 MIT 协议开源 - 详见 [LICENSE](https://github.com/AlexDai0x271/deepseek-cli/LICENSE) 文件
+本项目基于 MIT 协议开源 - 详见 [LICENSE](https://github.com/AlexDai0x271/deepseek-cli/blame/main/LISENCE) 文件
 
 ## 联系方式
 
