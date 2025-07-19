@@ -79,9 +79,6 @@ deepseek --version
 
 # 输出示例:
 # DeepSeek CLI v1.0.0
-# 作者: AlexDai
-# 邮箱: your.email@example.com
-# 描述: DeepSeek大语言模型命令行聊天工具
 ```
 
 ## 获取 API 密钥
