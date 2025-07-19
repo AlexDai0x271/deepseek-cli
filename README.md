@@ -248,6 +248,11 @@ echo $PATH
 
 # 添加用户 bin 目录到 PATH
 export PATH=$PATH:~/.local/bin
+
+# 如果希望长期使用则需要修改~/.bashrc
+vim ~/.bashrc
+# 在末尾添加
+export PATH=$PATH:~/.local/bin
 ```
 
 **3. API 连接失败**
